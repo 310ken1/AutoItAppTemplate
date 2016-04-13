@@ -1,7 +1,6 @@
 #include-once
 #include <GUIConstantsEx.au3>
 #include "lib/app/TeraTerm.au3"
-#include "lib/utility/Cmd.au3"
 #include "lib/utility/Debug.au3"
 #include "lib/utility/Ini.au3"
 #include "lib/utility/Template.au3"
