@@ -49,10 +49,10 @@ Local $target_combo = GUICtrlCreateCombo("", CtrlCol(1, 1), $target_top, CtrlWid
 
 ; ビルドオプション
 Local $option_top = $target_top + $target_height + $Margin
-Local $option_row1 = $option_top + $Margin * 3
-Local $option_height = $CtrlHeight + $Margin * 4
+Local $option_height = $CtrlHeight + $GroupTopMargin + $GroupBottomMargin
 Local $option_group = GUICtrlCreateGroup("ビルドオプション", $MainTabLeftMargin, $option_top, CtrlWidth(1), $option_height)
 GUIStartGroup()
+Local $option_row1 = $option_top + $GroupTopMargin
 Local $option1_radio = GUICtrlCreateRadio("Option1", GCtrlCol(1, 3), $option_row1, GCtrlWidth(3), $CtrlHeight)
 Local $option2_radio = GUICtrlCreateRadio("Option2", GCtrlCol(2, 3), $option_row1, GCtrlWidth(3), $CtrlHeight)
 Local $option3_radio = GUICtrlCreateRadio("Option3", GCtrlCol(3, 3), $option_row1, GCtrlWidth(3), $CtrlHeight)
