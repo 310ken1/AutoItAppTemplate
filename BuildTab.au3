@@ -160,20 +160,9 @@ EndFunc   ;==>WriteButtonEvent
 
 Func OpenButtonEvent()
 	Local $uri = GUICtrlRead($target_combo)
-	Local $fullpath = ""
-
-	Local $server = __UrlDomain($uri)
-	If $server <> "" Then
-		$fullpath = '\\' & $server
-	EndIf
-
-	Local $path = __UrlPath($uri)
-	If $path <> "" Then
-		$fullpath = $fullpath & StringReplace($path, '/', '\')
-	EndIf
+	Local $fullpath = __UrlToFile($uri)
 
 	Local $cmd = $app_filer & " """ & $fullpath & """"
-	__p($cmd)
 	Run($cmd)
 EndFunc   ;==>OpenButtonEvent
 
