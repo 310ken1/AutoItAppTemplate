@@ -26,7 +26,7 @@ Local $button6 = GUICtrlCreateButton("button6", CtrlCol(3, 3), $row3, CtrlWidth(
 
 Local $group_top = $row3 + $ButtonHeight + $Margin
 Local $group_height = $ButtonHeight * 3 + $GroupTopMargin + $GroupBottomMargin
-Local $group = GUICtrlCreateGroup("グループ", $MainTabLeftMargin, $group_top, CtrlWidth(1), $group_height)
+Local $group = GUICtrlCreateGroup("グループ", CtrlCol(1, 1), $group_top, CtrlWidth(1), $group_height)
 Local $group_row1 = $group_top + $GroupTopMargin
 Local $group_row2 = $group_row1 + $ButtonHeight
 Local $group_row3 = $group_row2 + $ButtonHeight
@@ -38,6 +38,29 @@ Local $group5 = GUICtrlCreateButton("group5", GCtrlCol(2, 3), $group_row3, GCtrl
 Local $group6 = GUICtrlCreateButton("group6", GCtrlCol(3, 3), $group_row3, GCtrlWidth(3), $ButtonHeight)
 GUICtrlCreateGroup("", -99, -99, 1, 1)
 
+Local $groups_top = $group_top + $group_height + $Margin
+Local $groups_height = $ButtonHeight * 2 + $GroupTopMargin + $GroupBottomMargin
+Local $groups_row1 = $groups_top + $GroupTopMargin
+Local $groups_row2 = $groups_row1 + $ButtonHeight
+Local $groups_space = 2
+Local $groups_col_max = 3
+Local $groups_width = CtrlWidth($groups_col_max, $groups_space)
+Local $groups_col1 = CtrlCol(1, $groups_col_max, $groups_space)
+Local $groups_col2 = CtrlCol(2, $groups_col_max, $groups_space)
+Local $groups_col3 = CtrlCol(3, $groups_col_max, $groups_space)
+Local $groups = GUICtrlCreateGroup("グループ1", $groups_col1, $groups_top, $groups_width, $groups_height)
+GUICtrlCreateButton("group1", GCtrlCol(1, 1, $groups_col1, $groups_width), $groups_row1, GCtrlWidth(1, $groups_width), $ButtonHeight)
+GUICtrlCreateButton("group1-1", GCtrlCol(1, 2, $groups_col1, $groups_width), $groups_row2, GCtrlWidth(2, $groups_width), $ButtonHeight)
+GUICtrlCreateButton("group1-2", GCtrlCol(2, 2, $groups_col1, $groups_width), $groups_row2, GCtrlWidth(2, $groups_width), $ButtonHeight)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+Local $groups = GUICtrlCreateGroup("グループ2", $groups_col2, $groups_top, $groups_width, $groups_height)
+GUICtrlCreateButton("group2", GCtrlCol(1, 1, $groups_col2, $groups_width), $groups_row1, GCtrlWidth(1, $groups_width), $ButtonHeight)
+GUICtrlCreateButton("group2-1", GCtrlCol(1, 2, $groups_col2, $groups_width), $groups_row2, GCtrlWidth(2, $groups_width), $ButtonHeight)
+GUICtrlCreateButton("group2-2", GCtrlCol(2, 2, $groups_col2, $groups_width), $groups_row2, GCtrlWidth(2, $groups_width), $ButtonHeight)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
+Local $groups = GUICtrlCreateGroup("グループ3", $groups_col3, $groups_top, $groups_width, $groups_height)
+GUICtrlCreateButton("group1", GCtrlCol(1, 1, $groups_col3, $groups_width), $groups_row1, GCtrlWidth(1, $groups_width), $ButtonHeight)
+GUICtrlCreateGroup("", -99, -99, 1, 1)
 
 Local $buttons[6] = [$button1, $button2, $button3, $button4, $button5, $button6]
 Local $groups[6] = [$group1, $group2, $group3, $group4, $group5, $group6]

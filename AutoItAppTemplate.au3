@@ -43,26 +43,26 @@ __TeraTermInclude(@TempDir & "\teraterm\")
 ;===============================================================================
 ; コントロールを横に指定個並べた場合の
 ; コントロールの横幅を取得する
-Func CtrlWidth(Const $count)
-	Return $CtrlWidth / $count
+Func CtrlWidth(Const $count, Const $space = 0, Const $width = $CtrlWidth)
+	Return ($width - ($space * ($count - 1))) / $count
 EndFunc   ;==>CtrlWidth
 
 ; コントロールを横に指定個並べた場合の
 ; コントロールの配置位置(x座標)を取得する
-Func CtrlCol(Const $index, Const $count)
-	Return $MainTabLeftMargin + (CtrlWidth($count) * ($index - 1))
+Func CtrlCol(Const $index, Const $count, Const $space = 0, Const $start = $MainTabLeftMargin, Const $width = $CtrlWidth)
+	Return $start + (CtrlWidth($count, $space, $width) * ($index - 1)) + ($space * ($index - 1))
 EndFunc   ;==>CtrlCol
 
 ; グループ内にコントロールを横に指定個並べた場合の
 ; コントロールの横幅を取得する
-Func GCtrlWidth(Const $count)
-	Return $GCtrlWidth / $count
+Func GCtrlWidth(Const $count, Const $width = $CtrlWidth)
+	Return ($width - ($Margin * 2)) / $count
 EndFunc   ;==>GCtrlWidth
 
 ; グループ内にコントロールを横に指定個並べた場合の
 ; コントロールの配置位置(x座標)を取得する
-Func GCtrlCol(Const $index, Const $count)
-	Return $MainTabLeftMargin + (GCtrlWidth($count) * ($index - 1)) + $Margin
+Func GCtrlCol(Const $index, Const $count, Const $start = $MainTabLeftMargin, Const $width = $CtrlWidth)
+	Return $start + (GCtrlWidth($count, $width) * ($index - 1)) + $Margin
 EndFunc   ;==>GCtrlCol
 
 ;===============================================================================
