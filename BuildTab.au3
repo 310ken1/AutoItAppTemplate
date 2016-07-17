@@ -164,9 +164,9 @@ EndFunc   ;==>OpenButtonEvent
 ;===============================================================================
 ; イベントリスナ登録
 ;===============================================================================
-RegisterEventClose("BuildTabEventClose")
+OnAutoItExitRegister("BuildTabExit")
 
-Func BuildTabEventClose()
+Func BuildTabExit()
 	__IniWriteComboItemDefault($target_combo, $ConfigFile, $section_build)
 
 	For $i = 0 To $BuildOptionsCount - 1

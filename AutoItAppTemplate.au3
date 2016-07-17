@@ -66,22 +66,6 @@ Func GCtrlCol(Const $index, Const $count, Const $start = $MainTabLeftMargin, Con
 EndFunc   ;==>GCtrlCol
 
 ;===============================================================================
-; クローズイベントリスナ
-;===============================================================================
-; イベントリスナ
-Local $EventCloseListener[0]
-
-; クローズイベントリスナを登録する
-Func RegisterEventClose(Const $func)
-	__EventRegister($EventCloseListener, $func)
-EndFunc   ;==>RegisterEventClose
-
-; クローズイベントリスナの登録を解除する
-Func UnregisterEventClose(Const $func)
-	__EventUnregister($EventCloseListener, $func)
-EndFunc   ;==>UnregisterEventClose
-
-;===============================================================================
 ; メインウインドウ生成
 ;===============================================================================
 Global $MainWindow = GUICreate($MainWindowTitle, $MainWindowWidth, $MainWindowHeight)
@@ -105,15 +89,14 @@ GUICtrlCreateTabItem("")
 ;===============================================================================
 ; イベント登録
 ;===============================================================================
-GUISetOnEvent($GUI_EVENT_CLOSE, "EventClose")
+GUISetOnEvent($GUI_EVENT_CLOSE, "OnExit")
 
 ; イベント定義
-Func EventClose()
-	__EventNotify($EventCloseListener)
+Func OnExit()
 	If @GUI_WinHandle = $MainWindow Then
 		Exit
 	EndIf
-EndFunc   ;==>EventClose
+EndFunc   ;==>OnExit
 
 ;===============================================================================
 ; メインウィンドウの表示
