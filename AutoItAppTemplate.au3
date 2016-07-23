@@ -1,6 +1,7 @@
 #include <GUIConstantsEx.au3>
 #include <GuiStatusBar.au3>
 #include <Array.au3>
+#include "lib/app/TeraTermInstall.au3"
 #include "lib/utility/Event.au3"
 Opt("GUIOnEventMode", 1)
 
@@ -33,10 +34,13 @@ Global $GCtrlWidth = $CtrlWidth - $Margin * 2
 ; 設定ファイル関連
 Global $ConfigFile = "config.ini"
 
+; アプリケーションデータ
+Global $AppDir = @LocalAppDataDir & "\" & @ScriptName
+
 ;===============================================================================
 ; 実行ファイルの同梱
 ;===============================================================================
-__TeraTermInclude(@TempDir & "\teraterm\")
+__TeraTermInclude($AppDir & "\teraterm\")
 
 ;===============================================================================
 ; 共通関数定義
